@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Virtual DOM MusicBox</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+      <script src="https://unpkg.com/@croquet/croquet@1.0"></script>
+      <link id="all-css" rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+      <script type="module">
+	import {makeMain, Library} from "https://unpkg.com/@croquet/virtual-dom@1.0.2";
+	import {musicbox} from "./musicbox.js";
+
+	let library = new Library();
+	library.addLibrary("musicbox", musicbox);
+	window.onload = makeMain("musicbox.start", {
+	    apiKey: "1_k2xgbwsmtplovtjbknerd53i73otnqvlwwjvix0f",
+	    appId: "io.croquet.vdom.musicbox",
+	    name: Croquet.App.autoSession("q"),
+	    password: "abc", eventRateLimit: 60, tps: 10}, library);
+      </script>
+    </body>
+</html>
